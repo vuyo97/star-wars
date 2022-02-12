@@ -1,0 +1,41 @@
+.carousel {
+    overflow: hidden;
+  }
+  
+  .inner {
+    white-space: nowrap;
+    transition: transform 1.5s;
+  }
+  
+  .carousel-item {
+    /* display: inline-flex; */
+    padding:20px 10px;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+   /* background-color: rgba(226, 250, 254, 0.75) ;*/
+  
+    background-color: rgba(0, 1,0, 0.99) ;
+    color: #fff;
+  }
+
+  .carousel-item a {
+    color:cyan;
+    font-weight:600;
+    text-decoration: none;
+  }
+  
+  .indicators {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .indicators > button {
+    margin: 5px;
+  }
+  
+  .indicators > button.active {
+    background-color: cyan;
+    color: #fff;
+  }
+  

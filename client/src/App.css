@@ -1,3 +1,12 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(./assets/fonts/SansationLight/SansationLight.woff);
+}
+
+* {
+  font-family: myFirstFont;
+}
+
 .App {
   text-align: center;
 }
@@ -21,6 +30,29 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height:5px;
+  background:black; 
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(0 31 255 / 45%);  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:black; 
 }
 
 @keyframes App-logo-spin {
