@@ -5,7 +5,7 @@ import "./carousel.css";
 
 export const CarouselItem = ({ children, width }) => {
   return (
-    <div className="carousel-item" style={{ width: '60%',margin:'auto',textAlign:'center',justifyContent:'center',borderRadius:'10px',opacity:'0.65' }}>
+    <div className="carousel-item" style={{ width: '100%',margin:'auto',textAlign:'center',justifyContent:'center',opacity:'0.95' }}>
       {children}
     </div>
   );

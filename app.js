@@ -11,7 +11,7 @@ const axios = require("axios");
 
 const resolvers = {
     Query:{
-        people : async () => {
+        getPeople : async () => {
             try{
                 const result = await axios.get("https://swapi.dev/api/people/");
                 console.log(result.data.results)
@@ -25,8 +25,24 @@ const resolvers = {
             }catch(error){
                 throw error
             }
-        }
+        },
+        getPerson : async (_parents,{name}) => {
+        try{ const result = await axios.get(`https://swapi.dev/api/people/?search=${name}`);
+        console.log(result.data.results)
+        return result.data.results.map(({name,height,mass,gender,homeworld})=>({
+            name,
+            height,
+            mass,
+            gender,
+            homeworld
+        }));
+    }catch(error){
+        throw error
     }
+      }
+
+    }
+   
 }
 
 

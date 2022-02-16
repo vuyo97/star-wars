@@ -9,7 +9,8 @@ const typeDefs = gql `type People{
     }
     
     type Query{
-        people : [People]
+        getPeople : [People]
+        getPerson(name: String): [People]
     }`;
 
 
