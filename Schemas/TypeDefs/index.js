@@ -5,7 +5,8 @@ const typeDefs = gql `type People{
     height: String,
     mass: String,
     gender: String, 
-    homeworld: String
+    homeworld: String,
+    next:String
     }
     
     type Query{

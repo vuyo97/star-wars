@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
-
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-Modal.setAppElement('#root');
+import 'w3-css/w3.css';
 
 const client = new ApolloClient({
     uri:'http://localhost:4000/graphql'
@@ -16,7 +14,7 @@ const client = new ApolloClient({
 ReactDOM.render(
     <React.StrictMode>
       <ApolloProvider client={client}>
-        <App />
+        <App perPage={5}/>
       </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root')

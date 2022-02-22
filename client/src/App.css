@@ -10,11 +10,36 @@
 .App {
   text-align: center;
 }
+#App {
+  padding: 65px;
+  background:black;
+  height:100vh;
+}
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-flash infinite 2s linear;
   height: 40vmin;
   pointer-events: none;
+}
+
+.loaderLogo {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  left :360px;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  z-index:999;
+  background:inherit;
+}
+.loaderText{
+  background:inherit;
+  color:grey;
+  position:relative;
+}
+.loaderContainer{
+padding-top:120px ;
 }
 
 .App-header {
@@ -54,12 +79,181 @@
 ::-webkit-scrollbar-thumb:hover {
   background:black; 
 }
+.bg {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.banner{
+  position: absolute;
+  height: 78%;
+  width: 55%;
+  left :360px;
+  top :-30px;
 
-@keyframes App-logo-spin {
+}
+.lsideSaber{
+  left:14px ;
+  top:24px;
+  position:fixed;
+  height:100%;
+  width :28%;
+ }
+.rsideSaber{
+  right:0 ;
+  top:0;
+  position:fixed;
+  height:100%;
+  width:28%;
+  z-index:0;
+ }
+.mSaber{
+  left:62px;
+  top:0;
+  position:fixed;
+  height:100%;
+  width :85%;
+ }
+
+.w3-top{
+  position: relative;
+   width: 55%; 
+  /* float: left; */
+  z-index:1;
+}
+
+.w3-bar-item{
+  margin :0px 12px
+}
+.nav{
+  top:5px;
+  position:absolute;
+  z-index: 1;
+  width: 26%; 
+  /*background-color: red;*/
+  height:50px;
+  overflow:hidden;
+  float:right
+}
+nav ul{
+  display: inline-flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  align-items: center;
+  margin:0px -110px auto!important
+}
+
+.searchBtn{
+  top:5px;
+  padding:0px 15px;
+  border-radius:25px;
+  height: 40px;
+  width: 300px;
+  background:inherit;
+  border :2px solid cyan;
+  color:cyan;
+  font-weight:700;
+  z-index:1;
+}
+
+#modal{
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+  width:60%;
+  font-weight: 600;
+  border-radius: 10px;
+  padding:25px 10px;
+  background-color: rgba(0,0,0,0.86);
+  color:cyan
+}
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: sticky;
+    z-index: 99999;
+    list-style-type: none;
+}
+
+.paginationItem {
+  background: #fff;
+  border: 2px solid #666;
+  padding: 10px 15px;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  position: relative;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prev,
+.next {
+  background:inherit;
+  border-radius: 50%;
+  padding: 10px;
+  font-weight: 800;
+  color: rgb(0, 255, 255);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.paginationItem.active {
+  background:rgba(0, 0, 0, 0.9);
+  border: 2px solid cyan;
+  color: rgb(0, 255, 255);
+  font-weight:700;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.paginationItem {
+  background:rgba(0, 0, 0, 0.65);
+  border: 1px solid #888;
+  color: cyan;
+  font-weight:700;
+  cursor: pointer;
+ 
+}
+
+.prev.disabled,
+.next.disabled {
+  pointer-events: none;
+  box-shadow: none;
+  color: #999;
+}
+
+
+.container{
+  right:0;
+  top:0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  position:relative;
+  padding : 0px 15px 14px 15px;
+  z-index: 0;
+  justify-content:center;
+}
+
+
+@keyframes App-logo-flash {
   from {
-    transform: rotate(0deg);
+    opacity:0.4;
   }
   to {
-    transform: rotate(360deg);
+    opacity:1;
   }
 }
