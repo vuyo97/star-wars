@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const PORT = 4000;
 //const {graphqlHTTP} = require("express-graphql");
-const schema = require("./Schemas/index");
+//const schema = require("./Schemas/resolvers/index");
 const typeDefs = require("./Schemas/TypeDefs/index");
 const axios = require("axios");
 
@@ -32,7 +32,7 @@ const resolvers = {
             }else{
                 if(res.next == null && res.results){
                     collection = [...collection, ...res.results];
-                    console.log(res.results);
+                    console.log("All 83");
                 }
                 return collection;
             }
@@ -59,21 +59,27 @@ const resolvers = {
             throw error
         }
         },
-       getPerson : async (_parents,{name}) => {
-        try{ 
-        const result = await axios.get(`https://swapi.dev/api/people/?search=${name}`);
-        console.log(result.data.results)
-        return result.data.results.map(({name,height,mass,gender,homeworld})=>({
-            name,
-            height,
-            mass,
-            gender,
-            homeworld,
-            next
-            }));
-            }catch(error){
+       getPerson : async (parent, args, context, info) => {
+            const { input } = args;
+            console.log(input.name);
+            collection= [];
+            try{ 
+
+            const result = await axios.get(`https://swapi.dev/api/people/?search=${input.name}`);
+            console.log(result.data.results)
+            collection = [...collection, ...result.data.results];
+
+            return collection.map(({name,height,mass,gender,homeworld})=>({
+                name,
+                height,
+                mass,
+                gender,
+                homeworld
+                }));
+                }
+            catch(error){
             throw error
-        }
+            }
         }//,
     //    getNext : async (_parents,{url}) => {
     //     try{ const result = await axios.get(`${url}`);

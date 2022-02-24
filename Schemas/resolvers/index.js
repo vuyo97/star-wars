@@ -1,6 +1,6 @@
 const axios = require("axios");
 const graphql =  require("graphql");
-const asyncWrapper = require("../middleware/async");
+const asyncWrapper = require("../../middleware/async");
 const {GraphQLSchema,
     GraphQLObjectType,
     GraphQLInt,
