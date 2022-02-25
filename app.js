@@ -62,7 +62,7 @@ const resolvers = {
        getPerson : async (parent, args, context, info) => {
             const { input } = args;
             console.log(input.name);
-            collection= [];
+            collection = [];
             try{ 
 
             const result = await axios.get(`https://swapi.dev/api/people/?search=${input.name}`);

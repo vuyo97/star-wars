@@ -64,14 +64,12 @@ const GetPerson = ({name}) => {
 const Home = () => {
   const { operations, models } = usePersonFilters();
   const {loading , error, data} = useQuery(GET_PEOPLE);
-  const {refetch} = useQuery(GET_PERSON,{
-      variables:{personInput:{name : String}}
-        }
+  const {refetch} = useQuery(GET_PERSON,{variables:{personInput:{name : String}}}
       ,{onSuccess:(data) => {
-          console.log("nanzi")
+        console.log(data)
         // items=response
       }}
-    );
+      );
 
       const items = data;
       if (error) return <h1 className="w3-center w3-text-red ">Something went wrong!</h1>
@@ -83,7 +81,7 @@ const Home = () => {
               </div>
       }
 
-      function usePersonFilters() {
+ function usePersonFilters() {
         const [filters, _updateFilter] = useState({ 
             name: undefined
         });
@@ -100,9 +98,7 @@ const Home = () => {
           models: { filters },
           operations: { updateFilter },
         };
-      }
-  
- 
+  }
 
   function Items({ peopleData }) {
     //console.log(peopleData);
@@ -178,8 +174,7 @@ const Home = () => {
         </li >
         <li className="w3-bar-item items">
         <button className="w3-bar-item items w3-text-cyan w3-black w3-round w3-border-cyan" 
-        onClick={() =>
-            refetch({personInput: { name: models.filters.name }})}>Search
+        onClick={() => refetch({personInput: { name: models.filters.name }})}>Search
       </button>
         </li >
         </ul>
