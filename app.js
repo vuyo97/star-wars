@@ -1,7 +1,8 @@
 const {ApolloServer , } = require("apollo-server");
 const express = require("express");
-const app = express();
-const PORT = 4000;
+//require('dotenv').config();
+
+const PORT = process.env.PORT || 5000;
 //const {graphqlHTTP} = require("express-graphql");
 //const schema = require("./Schemas/resolvers/index");
 const typeDefs = require("./Schemas/TypeDefs/index");
@@ -47,19 +48,19 @@ const resolvers = {
             }
             // console.log(collection)
         
-            return collection.map(({name,height,mass, gender,homeworld,next})=>({
+            return collection.map(({name,height,mass, gender,homeworld,url})=>({
                     name,
                     height ,
                     mass,
                     gender,
                     homeworld,
-                    next
+                    url
                 }));
         }catch(error){
             throw error
         }
         },
-       getPerson : async (parent, args, context, info) => {
+       getProfile : async (parent, args, context, info) => {
             const { input } = args;
             console.log(input.name);
             collection = [];
@@ -80,22 +81,7 @@ const resolvers = {
             catch(error){
             throw error
             }
-        }//,
-    //    getNext : async (_parents,{url}) => {
-    //     try{ const result = await axios.get(`${url}`);
-    //     console.log(result.data.results)
-    //     return result.data.results.map(({name,height,mass, gender,homeworld,next})=>({
-    //         name,
-    //         height ,
-    //         mass,
-    //         gender,
-    //         homeworld,
-    //         next
-    //     }));
-    //     }catch(error){
-    //     throw error
-    // }
-    //   }
+        }
     }
    
 }

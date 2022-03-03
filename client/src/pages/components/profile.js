@@ -1,14 +1,14 @@
 import React,{useState} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Card from 'react-bootstrap/Card'
-import Carousel, { CarouselItem } from "./carousel/carousel";
 import '../../App.css';
 
 
-const People = ({people:{name,height,mass,gender,homeworld,url}}) => {
+const Profile = ({personData:{name,height,mass,gender,homeworld,url}}) => {
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
     const imgURL = 'https://starwars-visualguide.com/assets/img/characters/'
+    console.log("profile");
 
   
     function handleShow(breakpoint) {
@@ -19,28 +19,9 @@ const People = ({people:{name,height,mass,gender,homeworld,url}}) => {
     function getImg({url}) {
       return url.split('/')[url.split('/').length - 2];
     }
-  
-  
-  return(
+return(
     <>
-      <div className="w3-col m12 l12 w3-hover-opacity">
-        <Carousel >
-        <CarouselItem style={{height:'100vh'}}>
-        <Card >
-        <Card.Body>
-          <Card.Title><h1><a onClick={() => handleShow(true)} style={{cursor:'pointer'}}>{name}</a></h1></Card.Title>
-          <Card.Text>
-            
-            <p><strong>Gender </strong> : {gender}</p>
-            <p ><strong>Height </strong> : {height}</p>
-           
-            {/* <p color="blue"><strong>Homeworld </strong> : {homeworld.name}</p> */}
-          </Card.Text>
-          <Card.Link onClick={() => handleShow(true)} style={{cursor:'pointer'}}>View Details</Card.Link>
-        </Card.Body>
-        </Card>
-        </CarouselItem>
-      </Carousel>
+     <div className="w3-col m12 l12 w3-hover-opacity">
         <Modal  
           className='w3-modal w3-animate-opacity'
           fullscreen={fullscreen}
@@ -54,28 +35,28 @@ const People = ({people:{name,height,mass,gender,homeworld,url}}) => {
           <span onClick={() => handleShow(false)} className="w3-button w3-display-topright">X</span>
         </Modal.Header>
             <Card >
-            <Card.Body className='w3-container w3-center'>
+            <Card.Body className='w3-container w3-row'>
               <Card.Text>
-                <div className="w3-col m12 w3-animate-opacity">
+                <div className="w3-col m4 w3-animate-opacity">
                 <div className="w3-col m12">
                 <img src={`${imgURL + getImg({url})}.jpg`} className="avi"/>
                 </div>
                 </div>
-                <div className="w3-col m12 ">
-                <p><strong>Height </strong> : {height}</p>
-                <p><strong>Mass </strong> : {mass}</p>
-                <p><strong>Gender </strong> : {gender}</p>
+                <div className="w3-col m8">
+                <p color="blue"><strong>Height </strong> : {height}</p>
+                <p color="blue"><strong>Mass </strong> : {mass}</p>
+                <p color="blue"><strong>Gender </strong> : {gender}</p>
                 </div>
               </Card.Text>
               <Card.Link href={`${homeworld}`}>See HomeWorld</Card.Link>
             </Card.Body>
             </Card>
        
-      </Modal.Body>
-    </Modal>
-    </div>
-    </>  
-  )
-  }
+        </Modal.Body>
+        </Modal>
+        </div>
+        </>
+    ) 
+}
 
-  export default People;
+export default Profile;

@@ -5,8 +5,10 @@ const typeDefs = gql `type People{
     height: String,
     mass: String,
     gender: String, 
-    homeworld: String
+    homeworld: String,
+    url:String
     }
+    
 
     input PersonInputFilter {
         name: String
@@ -14,7 +16,7 @@ const typeDefs = gql `type People{
     
     type Query{
         getPeople: [People]
-        getPerson(input: PersonInputFilter): [People]
+        getProfile(input: PersonInputFilter): [People]
     }`;
 
 
