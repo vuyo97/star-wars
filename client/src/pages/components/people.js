@@ -3,9 +3,9 @@ import Modal from 'react-bootstrap/Modal'
 import Card from 'react-bootstrap/Card'
 import Carousel, { CarouselItem } from "./carousel/carousel";
 import '../../App.css';
+import { HandleView } from '../Home';
 
-
-const People = ({people:{name,height,mass,gender,homeworld,url}}) => {
+const People = ({people:{name,height,mass,gender,homeworld,url},onClick}) => {
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
     const imgURL = 'https://starwars-visualguide.com/assets/img/characters/'
@@ -68,6 +68,7 @@ const People = ({people:{name,height,mass,gender,homeworld,url}}) => {
                 </div>
               </Card.Text>
               <Card.Link href={`${homeworld}`}>See HomeWorld</Card.Link>
+              <p><button className="w3-button w3-round w3-cyan w3-text-black " onClick={()=> onClick(true,{name})}>Profile</button></p>
             </Card.Body>
             </Card>
        

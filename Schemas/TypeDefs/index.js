@@ -9,7 +9,9 @@ const typeDefs = gql `type People{
     url:String
     }
     
-
+type homeworld{
+  name: String
+}
     input PersonInputFilter {
         name: String
       }

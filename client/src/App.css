@@ -170,6 +170,7 @@ nav ul{
 .profavi {
   height: 100%;
   width: 75%;
+  border:1px solid cyan!important;
   border-radius: 5px;
 }
 .details{
@@ -203,6 +204,12 @@ nav ul{
     width: 100vw;
 }
 
+.detailBox{
+    display: flex;
+    padding: 10px 0px;
+    grid-gap: 10px;
+}
+
 .w3-modal {
     z-index: 3;
     display: none;
@@ -219,6 +226,12 @@ nav ul{
 .w3-profmodal {
   padding-top: 50px!important;
   background-color: rgba(0,0,0,0.99)!important;
+}
+.w3-bordered tr, .w3-table-all tr {
+  border-bottom: 1px solid cyan!important;
+}
+.w3-table-all{
+  border:1px solid cyan!important;
 }
 
 .pagination {
