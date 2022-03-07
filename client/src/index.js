@@ -14,7 +14,7 @@ const client = new ApolloClient({
 ReactDOM.render(
     <React.StrictMode>
       <ApolloProvider client={client}>
-        <App perPage={5}/>
+        <App />
       </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root')

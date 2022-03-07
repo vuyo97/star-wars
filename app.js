@@ -78,6 +78,42 @@ const resolvers = {
             catch(error){
             throw error
             }
+        },
+        getPlanet : async (parent, args, context, info) => {
+            const { url } = args;
+            //console.log(url);
+            //let collection = [];
+            try{ 
+                // const url = "https://swapi.dev/api/people/";
+                 let collection = [];
+                // let pageNo = 1;
+                // const { data } = await axios.get(`${url}`);
+                // let res = data;
+                    //console.log(res)
+
+                const result = await axios.get(`${url}`);
+               // console.log(result.data)
+                let data =[result.data]
+                collection = [...collection, ...data];
+                 
+                console.log(collection)
+            
+                return collection.map(({name,rotation_period,orbital_period, diameter,climate,gravity,terrain,surface_water,population,url})=>({
+                    name,
+                    rotation_period,
+                    orbital_period,
+                    diameter,
+                    climate,
+                    gravity,
+                    terrain,
+                    surface_water,
+                    population,
+                    url
+                    }));
+            }catch(error){
+                throw error
+            }
+
         }
     }
    

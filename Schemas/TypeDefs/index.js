@@ -1,6 +1,6 @@
 const {ApolloServer , gql} = require("apollo-server");
 
-const typeDefs = gql `type People{
+const typeDefs = gql`type People{
     name: String,
     height: String,
     mass: String,
@@ -8,17 +8,36 @@ const typeDefs = gql `type People{
     homeworld: String,
     url:String
     }
-    
-type homeworld{
-  name: String
-}
-    input PersonInputFilter {
-        name: String
-      }
+
+    type Planet{
+      name: String,
+      rotation_period: String,
+      orbital_period: String,
+      diameter: String,
+      climate: String,
+      gravity: String,
+      terrain: String,
+      surface_water: String,
+      population: String,
+      url: String
+    }
+
+    type homeworld{
+      name: String
+    }
+
+    input PersonInput {
+      name: String
+    }
+
+    input PlanetInput {
+      PlanetInput: String!
+    }
     
     type Query{
         getPeople: [People]
-        getProfile(input: PersonInputFilter): [People]
+        getProfile(input: PersonInput): [People]
+        getPlanet(url: String!): [Planet]!
     }`;
 
 

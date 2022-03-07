@@ -1,0 +1,9 @@
+.planetDetails{
+    float: right;
+    font-size: smaller;
+    display: inline-grid;
+}
+.planetImg{
+    height:100px;
+    width:100px
+}

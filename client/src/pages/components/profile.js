@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Card from 'react-bootstrap/Card'
+import Planet from './sub-components/planet';
 import '../../App.css';
 
 
@@ -65,11 +66,11 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
               <div className="w3-col m6" style={{border:'1px solid cyan'}}>
               <div class="w3-card">
                 <header class="w3-container w3-cyan">
-                  <h3>Plants</h3>
+                  <h3>Planets</h3>
                 </header>
 
                 <div class="w3-container">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                 <Planet planetUrl={homeworld} />
                 </div>
 
               </div>
