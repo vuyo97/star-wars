@@ -28,10 +28,10 @@ console.log(data)
 
        return (
             <>
-            <div className="w3-row w3-col m12 filmContainer">
+            <div className="w3-col m12 filmContainer">
             {data.getStarships.map((ship,s)=>{
                 return(
-                <div className="w3-col m2 w3-animate-opacity" key={s}> 
+                <div className="w3-col m1 w3-animate-opacity" key={s}> 
                     <Img src={[`${imgURL + getImg(ship.url)}.jpg`, `${noIMG}`]} className="filmImg" alt="starship_thumb" />
                     <p><span>{ship.name}</span></p>
                 </div>)

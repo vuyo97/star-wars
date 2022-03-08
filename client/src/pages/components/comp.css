@@ -73,6 +73,11 @@ table{
     display: none;
 }
 
+.planetDetails {
+    padding-top: 10px!important;
+    display: inline-grid;
+}
+
 .filmContainer {
     display: inline-block!important;
     grid-column-gap: 10px;

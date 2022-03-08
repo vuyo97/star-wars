@@ -1,10 +1,10 @@
 @font-face {
-  font-family: myFirstFont;
+  font-family: swFont;
   src: url(./assets/fonts/SansationLight/SansationLight.woff);
 }
 
 * {
-  font-family: myFirstFont;
+  font-family: swFont;
 }
 
 .App {
