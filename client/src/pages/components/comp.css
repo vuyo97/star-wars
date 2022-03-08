@@ -1,0 +1,99 @@
+@media screen and (max-width: 550px) {
+
+.container{
+     display:block!important;
+}
+table{
+    font-size: x-small;
+}
+.aviContainer{
+    text-align: center;
+    margin-bottom: 12px;
+}
+.profName{
+    text-align:center;
+}
+.loaderLogo{
+    width:45%!important;
+    height:20%!important;
+    left:27%!important;
+    margin:250px 0px auto!important;
+    text-align:center!important;
+}
+.loaderText{
+    font-size:x-large!important;
+}
+ .searchBtn {
+    top: 5px;
+    padding: 0px 15px;
+    border-radius: 25px;
+    height: 40px;
+    width: 100%!important;
+    background: rgba(0,0,0,0.95)!important;
+    border: 2px solid cyan;
+    color: cyan;
+    font-weight: 700;
+    z-index: 1;
+}
+.card-titles{
+    font-size:x-large!important;
+}
+.banner {
+    position: relative!important;
+    height: 79%!important;
+    width: 57%!important;
+    left: 91px!important;
+    top: 37px!important;
+}
+
+.bg {
+    display: inline-grid !important;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0,0,0);
+}
+.lsideSaber {
+    left: -73px!important;
+    top: -64px!important;
+    position: relative!important;
+    width: 60%!important;
+}
+
+.mSaber {
+    position: relative!important;
+    height: 100%;
+    width: 105%;
+}
+
+.rsideSaber{
+    display: none;
+}
+
+.filmContainer {
+    display: inline-block!important;
+    grid-column-gap: 10px;
+    column-gap: 10px;
+    font-size: x-small;
+    margin: auto;
+    text-align: center!important;
+    padding: 10px 0px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    left: -5px;
+    width: 100%;
+    font-size: x-small;
+    padding: 5px 4px;
+    
+}
+}

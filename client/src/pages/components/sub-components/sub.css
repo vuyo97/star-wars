@@ -7,3 +7,19 @@
     height:100px;
     width:100px
 }
+.filmImg{
+    height:70px;
+    width:70px
+}
+
+.filmContainer{
+    display: inline-flex;
+    column-gap: 10px;
+    font-size: x-small;
+    padding: 10px 0px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.planetContainer{
+    padding: 10px 0px;
+}

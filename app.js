@@ -1,15 +1,11 @@
 const {ApolloServer} = require("apollo-server");
-const PORT = process.env.PORT || 5000;
-
-//const schema = require("./Schemas/resolvers/index");
 const typeDefs = require("./Schemas/TypeDefs/index");
 const axios = require("axios");
-
 //const {resolvers} = require("./Schemas/index");
 
 const resolvers = {
     Query:{
-        getPeople : async () => {
+       getPeople : async () => {
         try{ 
             const url = "https://swapi.dev/api/people/";
             let collection = [];
@@ -34,24 +30,19 @@ const resolvers = {
                 }
                 return collection;
             }
-           // pageNo++;
-          //   if(res.next!=null){
-                //  const { data } = await axios.get(res.next);
-                //  res = data;
-             //   }
-            
-           // const { data } = await axios.get(`${url}/?page=${pageNo}`);
-            
+                       
             }
-             console.log(collection)
+            // console.log(collection)
         
-            return collection.map(({name,height,mass, gender,homeworld,url})=>({
+            return collection.map(({name,height,mass, gender,homeworld,url,films,starships})=>({
                     name,
                     height ,
                     mass,
                     gender,
                     homeworld,
-                    url
+                    url,
+                    films,
+                    starships
                 }));
         }catch(error){
             throw error
@@ -79,17 +70,10 @@ const resolvers = {
             throw error
             }
         },
-        getPlanet : async (parent, args, context, info) => {
+       getPlanet : async (parent, args, context, info) => {
             const { url } = args;
-            //console.log(url);
-            //let collection = [];
             try{ 
-                // const url = "https://swapi.dev/api/people/";
                  let collection = [];
-                // let pageNo = 1;
-                // const { data } = await axios.get(`${url}`);
-                // let res = data;
-                    //console.log(res)
 
                 const result = await axios.get(`${url}`);
                // console.log(result.data)
@@ -114,11 +98,61 @@ const resolvers = {
                 throw error
             }
 
+        },
+       getFilms : async (parent, args, context, info) => {
+            const { urls } = args;
+            //console.log(urls)
+
+            try{ 
+                 let collection = [];
+                 let links=urls;
+
+             for(let l=0;l<links.length;l++){
+                const result = await axios.get(links[l]);
+               // console.log(result.data);
+                //console.log(l);
+
+                let data =[result.data]
+                collection = [...collection, ...data];
+                }
+               // console.log(collection)
+            
+                return collection.map(({title,url})=>({
+                    title,url
+                    }));
+            }catch(error){
+                throw error
+            }
+
+        },
+       getStarships : async (parent, args, context, info) => {
+        const { urls } = args;
+        console.log(urls)
+
+        try{ 
+             let collection = [];
+             let links=urls;
+
+         for(let l=0;l<links.length;l++){
+            const result = await axios.get(links[l]);
+            console.log(result.data);
+            console.log(l);
+
+            let data =[result.data]
+            collection = [...collection, ...data];
+            }
+           // console.log(collection)
+        
+            return collection.map(({name,url})=>({
+                name,url
+                }));
+        }catch(error){
+            throw error
+        }
         }
     }
    
 }
-
 
 const server = new ApolloServer({
     typeDefs,
@@ -126,12 +160,3 @@ const server = new ApolloServer({
 })
 
 server.listen().then(({url})=> console.log(`Server started at ${url}`)); 
-
-// app.use('/graphql', graphqlHTTP({
-//     schema,
-//     graphiql :true
-// }));
-  
-// app.listen(PORT, ()=>{
-//   console.log(`Server running on ${PORT}`)
-// })

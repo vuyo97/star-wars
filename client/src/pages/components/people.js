@@ -28,7 +28,7 @@ const People = ({people:{name,height,mass,gender,homeworld,url},onClick}) => {
         <CarouselItem style={{height:'100vh'}}>
         <Card >
         <Card.Body>
-          <Card.Title><h1><a onClick={() => handleShow(true)} style={{cursor:'pointer'}}>{name}</a></h1></Card.Title>
+          <Card.Title><h1 className="card-titles"><a onClick={() => handleShow(true)} style={{cursor:'pointer'}}>{name}</a></h1></Card.Title>
           <Card.Text>
             
             <p><strong>Gender </strong> : {gender}</p>
@@ -67,7 +67,6 @@ const People = ({people:{name,height,mass,gender,homeworld,url},onClick}) => {
                 <p><strong>Gender </strong> : {gender}</p>
                 </div>
               </Card.Text>
-              <Card.Link href={`${homeworld}`}>See HomeWorld</Card.Link>
               <p><button className="w3-button w3-round w3-cyan w3-text-black " onClick={()=> onClick(true,{name})}>Profile</button></p>
             </Card.Body>
             </Card>

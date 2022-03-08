@@ -2,10 +2,13 @@ import React,{useState} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Card from 'react-bootstrap/Card'
 import Planet from './sub-components/planet';
+import Films from './sub-components/films';
+import Starships from './sub-components/starships';
 import '../../App.css';
 
 
-const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,eye_color,skin_color,birth_year},handelModal}) => {
+const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,eye_color,skin_color,birth_year,films,starships}
+  ,handelModal}) => {
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(true);
 
@@ -29,13 +32,13 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
   </Modal.Header>
       <Card >
       <Card.Body className='w3-container w3-row' >
-          <div className="w3-col m4 w3-animate-opacity">
+          <div className="w3-col m4 w3-animate-opacity aviContainer">
           <div className="w3-col m12 w3-center">
           <img src={`${imgURL + getImg({url})}.jpg`} className="profavi"/>
           </div>
           </div>
           <div className="w3-col m8">
-          <div className='w3-center w3-blue w3-text-black w3-col m12'><h2>{name}</h2></div>
+          <div className='w3-center w3-blue w3-text-black w3-col m12 profName'><h2>{name}</h2></div>
             <div className="w3-col m12">
               <table className="w3-table-all w3-hoverable ">
                 <tbody>
@@ -47,7 +50,6 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
                   <th><strong>Height </strong></th>
                   <th><strong>Mass </strong></th>
                   <th><strong>Gender </strong></th>
-                  <th><strong>Homeworld </strong></th>
                 </tr>
                 <tr className="w3-black w3-text-cyan">
                   <td>{birth_year}</td>
@@ -57,9 +59,8 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
                   <td>{height}</td>
                   <td>{mass}</td>
                   <td>{gender}</td>
-                  <td><a href={`${homeworld}`}>See HomeWorld</a></td>
                   </tr>
-                  </tbody>
+                </tbody>
               </table> 
             </div>
             <div className="w3-col m12 detailBox">
@@ -68,13 +69,12 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
                 <header class="w3-container w3-cyan">
                   <h3>Planets</h3>
                 </header>
-
                 <div class="w3-container">
-                 <Planet planetUrl={homeworld} />
+                 {homeworld &&
+                   (<Planet planetUrl={homeworld} />)
+                  }
                 </div>
-
               </div>
-  
               </div>
               <div className="w3-col m6" style={{border:'1px solid cyan'}}>
               <div class="w3-card">
@@ -83,7 +83,7 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
                 </header>
 
                 <div class="w3-container">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  {films && (<Films filmUrls={films} /> )}               
                 </div>
 
               </div>
@@ -94,15 +94,16 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
             <div className="w3-col m12" style={{border:'1px solid cyan'}}>
               <div class="w3-card">
                 <header class="w3-container w3-cyan">
-                  <h3>Vehicles</h3>
+                  <h3>Starships</h3>
                 </header>
-
                 <div class="w3-container">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  {starships.length != 0 ? (<Starships shipUrls={starships} />):(
+                  <div className="w3-col m12 w3-center w3-animate-opacity w3-text-cyan">
+                    <h4>No related Starships</h4>
+                  </div>
+                  )}       
                 </div>
-
                 </div>
-  
               </div>
             </div>
             </div>

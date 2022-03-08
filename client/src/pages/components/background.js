@@ -4,6 +4,7 @@ import Logo from '../../assets/logo2.png';
 import Saber1 from '../../assets/darth.png'; 
 import Saber2 from '../../assets/lsaber2.png'; 
 import Saber3 from '../../assets/lsaber4.png'; 
+import './comp.css';
 
 const Background = () => {
     return(

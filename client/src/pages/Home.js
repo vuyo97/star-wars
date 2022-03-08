@@ -15,6 +15,7 @@ import loader from '../assets/logo.png';
 import * as $ from 'jquery';
 import '../App.css';
 import "./Search.css";
+import "./components/comp.css";
 
 
 const customStyles = {
@@ -54,6 +55,7 @@ const Home = () => {
   const { operations, models } = usePersonFilters();
   const {loading , error, data} = useQuery(GET_PEOPLE);
   const [filteredData, setFilteredData] = useState([]);
+  const [enteredWord, setEnteredWord] = useState([]);
 
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState({});
@@ -61,18 +63,14 @@ const Home = () => {
   const HandleView = async (breakpoint,value) => {
     const {data} = await axios.get(`https://swapi.dev/api/people/?search=${value.name}`);
     console.log(data.results);
-  
     setProfile(data.results[0]);
-    // console.log(breakpoint)
-    // console.log(count)
      console.log(value)
-    // console.log(profile)
     setShow(breakpoint);
   }
 
   const clearInput = () => {
-    setFilteredData([]);
-   // setWordEntered("");
+    //setFilteredData([]);
+    setEnteredWord("");
   };
 
   
@@ -108,6 +106,7 @@ const Home = () => {
             });
             console.log("Filter - " + JSON.stringify(newFilter));
             setFilteredData(newFilter);
+           // setEnteredWord(newFilter);
 
           _updateFilter({
             [filterType]: value,
@@ -119,34 +118,7 @@ const Home = () => {
         };
   }
 
-  // const ShowPerson = (View,{personData}) => {
-  //   //  const [view,setView] = useState(false);
-  //   //  function handleView(View) {
-  //   //   setView(View);
-  //   //  }
-  //   //  handleView(View);
-  //   // const imgURL = 'https://starwars-visualguide.com/assets/img/characters/'
-  //   // function getImg({url}) {
-  //   //   return url.split('/')[url.split('/').length - 2];
-  //   // }
-  //   // //handleView(true);
-
-  //   // const person = [val];
-  //   return(
-  //   <div  class="w3-modal">
-  //   <div class="w3-modal-content">
-  //     <div class="w3-container">
-  //     <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-  //     <p>Some text in the Modal..</p>
-  //     <p>Some text in the Modal..</p>
-  //   </div>
-  //   </div>
-  //   </div>
-  //   )
-  // }
-
   function Items({ peopleData }) {
-    //console.log(peopleData);
     return (
       <>
       <div className="container">

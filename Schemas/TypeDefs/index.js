@@ -6,7 +6,9 @@ const typeDefs = gql`type People{
     mass: String,
     gender: String, 
     homeworld: String,
-    url:String
+    url:String,
+    films:[String],
+    starships:[String]
     }
 
     type Planet{
@@ -22,8 +24,18 @@ const typeDefs = gql`type People{
       url: String
     }
 
-    type homeworld{
-      name: String
+    type Homeworld{
+     name: String
+    }
+
+    type Films{
+      title: String,
+      url:String
+    }
+    
+    type Ships{
+      name: String,
+      url:String
     }
 
     input PersonInput {
@@ -38,6 +50,8 @@ const typeDefs = gql`type People{
         getPeople: [People]
         getProfile(input: PersonInput): [People]
         getPlanet(url: String!): [Planet]!
+        getFilms(urls: [String]!):[Films]
+        getStarships(urls: [String]!):[Ships]
     }`;
 
 
