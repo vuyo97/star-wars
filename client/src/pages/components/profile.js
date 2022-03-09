@@ -9,20 +9,19 @@ import '../../App.css';
 
 const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,eye_color,skin_color,birth_year,films,starships}
   ,handelModal}) => {
-  const [fullscreen, setFullscreen] = useState(true);
+  //const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(true);
 
   const imgURL = 'https://starwars-visualguide.com/assets/img/characters/'
   function getImg({url}) {return url.split('/')[url.split('/').length - 2];}
   
-   console.log({handelModal});
     return(
     <>
     <Modal  
     className='w3-modal w3-animate-opacity w3-profmodal'
     style={{zIndex:'999'}}
     show={show}
-    fullscreen={fullscreen}
+    fullscreen={true}
     onHide={() => setShow(false)}
   >
   <Modal.Body id='profilemodal' className='w3-modal-content'>
@@ -34,7 +33,7 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
       <Card.Body className='w3-container w3-row' >
           <div className="w3-col m4 w3-animate-opacity aviContainer">
           <div className="w3-col m12 w3-center">
-          <img src={`${imgURL + getImg({url})}.jpg`} className="profavi"/>
+          <img src={`${imgURL + getImg({url})}.jpg`} className="profavi" alt="profile_avi"/>
           </div>
           </div>
           <div className="w3-col m8">
@@ -65,11 +64,11 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
             </div>
             <div className="w3-col m12 detailBox">
               <div className="w3-col m6" style={{border:'1px solid cyan'}}>
-              <div class="w3-card">
-                <header class="w3-container w3-cyan">
+              <div className="w3-card">
+                <header className="w3-container w3-cyan">
                   <h3>Planets</h3>
                 </header>
-                <div class="w3-container">
+                <div className="w3-container">
                  {homeworld &&
                    (<Planet planetUrl={homeworld} />)
                   }
@@ -77,12 +76,12 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
               </div>
               </div>
               <div className="w3-col m6" style={{border:'1px solid cyan'}}>
-              <div class="w3-card">
-                <header class="w3-container w3-cyan">
+              <div className="w3-card">
+                <header className="w3-container w3-cyan">
                   <h3>Films</h3>
                 </header>
 
-                <div class="w3-container">
+                <div className="w3-container">
                   {films && (<Films filmUrls={films} /> )}               
                 </div>
 
@@ -92,12 +91,12 @@ const Profile = ({personData:{name,height,mass,gender,homeworld,url,hair_color,e
             </div>
             <div className="w3-col m12 ">
             <div className="w3-col m12" style={{border:'1px solid cyan'}}>
-              <div class="w3-card">
-                <header class="w3-container w3-cyan">
+              <div className="w3-card">
+                <header className="w3-container w3-cyan">
                   <h3>Starships</h3>
                 </header>
-                <div class="w3-container">
-                  {starships.length != 0 ? (<Starships shipUrls={starships} />):(
+                <div className="w3-container">
+                  {starships.length !== 0 ? (<Starships shipUrls={starships} />):(
                   <div className="w3-col m12 w3-center w3-animate-opacity w3-text-cyan">
                     <h4>No related Starships</h4>
                   </div>

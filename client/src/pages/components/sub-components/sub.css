@@ -2,6 +2,7 @@
     float: right;
     font-size: smaller;
     display: inline-grid;
+    padding-left: 15px;
 }
 .planetImg{
     height:100px;

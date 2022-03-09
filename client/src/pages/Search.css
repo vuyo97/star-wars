@@ -1,4 +1,15 @@
-
+.searchBtn{
+  top:5px;
+  padding:0px 15px;
+  border-radius:25px;
+  height: 40px;
+  width: 300px;
+  background:rgba(0,0,0,0.9);
+  border :2px solid cyan;
+  color:cyan;
+  font-weight:700;
+  z-index:1;
+}
 .dataResult {
     margin-top: 3px;
     width: 300px;

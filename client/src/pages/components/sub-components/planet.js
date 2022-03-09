@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { useQuery } from "@apollo/react-hooks"
 import {Img} from 'react-image'
 import gql from "graphql-tag"

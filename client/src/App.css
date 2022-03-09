@@ -84,6 +84,7 @@ padding-top:120px ;
   width: 100vw;
   height: 100vh;
   position: fixed;
+  background: black;
   top: 0;
   left: 0;
 }
@@ -146,19 +147,6 @@ nav ul{
   flex-wrap: wrap;
   align-items: center;
   margin:0px 0px auto!important
-}
-
-.searchBtn{
-  top:5px;
-  padding:0px 15px;
-  border-radius:25px;
-  height: 40px;
-  width: 300px;
-  background:inherit;
-  border :2px solid cyan;
-  color:cyan;
-  font-weight:700;
-  z-index:1;
 }
 
 .avi{

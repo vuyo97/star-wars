@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal'
 import Card from 'react-bootstrap/Card'
 import Carousel, { CarouselItem } from "./carousel/carousel";
 import '../../App.css';
-import { HandleView } from '../Home';
 
 const People = ({people:{name,height,mass,gender,homeworld,url},onClick}) => {
     const [fullscreen, setFullscreen] = useState(true);
@@ -40,7 +39,7 @@ const People = ({people:{name,height,mass,gender,homeworld,url},onClick}) => {
         </Card.Body>
         </Card>
         </CarouselItem>
-      </Carousel>
+        </Carousel>
         <Modal  
           className='w3-modal w3-animate-opacity'
           fullscreen={fullscreen}
@@ -58,7 +57,7 @@ const People = ({people:{name,height,mass,gender,homeworld,url},onClick}) => {
               <Card.Text>
                 <div className="w3-col m12 w3-animate-opacity">
                 <div className="w3-col m12">
-                <img src={`${imgURL + getImg({url})}.jpg`} className="avi"/>
+                <img src={`${imgURL + getImg({url})}.jpg`} className="avi" alt="character_avi" />
                 </div>
                 </div>
                 <div className="w3-col m12 ">
