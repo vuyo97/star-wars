@@ -1,6 +1,9 @@
 const {ApolloServer} = require("apollo-server");
 const typeDefs = require("./Schemas/TypeDefs/index");
 const axios = require("axios");
+require('dotenv').config();
+const PORT = process.env.PORT || 4000;
+
 //const {resolvers} = require("./Schemas/index");
 
 const resolvers = {
@@ -159,4 +162,4 @@ const server = new ApolloServer({
     resolvers
 })
 
-server.listen().then(({url})=> console.log(`Server started at ${url}`)); 
+server.listen().then(({PORT})=> console.log(`Server started at ${PORT}`)); 
