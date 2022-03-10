@@ -14,3 +14,6 @@ Apollo GraphQL - React
 
 # Codesanbox
 https://codesandbox.io/s/star-wars-ev1r3r
+
+# View demo
+https://sws-api.netlify.app/
