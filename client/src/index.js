@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import 'w3-css/w3.css';
 
 const client = new ApolloClient({
-    uri:'http://localhost:4000/graphql'
+    uri:'/graphql'
 })
 
 ReactDOM.render(
