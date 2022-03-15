@@ -1,8 +1,13 @@
 const {ApolloServer} = require("apollo-server");
 const typeDefs = require("./Schemas/TypeDefs/index");
 const axios = require("axios");
+var cors = require('cors')
+
 require('dotenv').config();
 const PORT = process.env.PORT || 5000;
+//middleware
+// var allowedOrigins = ['http://localhost:4000','http://localhost:5000',
+//                       'https://sws-api.netlify.app/'];
 
 //const {resolvers} = require("./Schemas/index");
 
@@ -156,10 +161,13 @@ const resolvers = {
     }
    
 }
-
-const server = new ApolloServer({
+const server = new ApolloServer({cors: {
+    origin: '*',	
+    credentials: true},
     typeDefs,
     resolvers
 })
+
+
 
 server.listen(PORT,()=> console.log(`Server started at ${PORT}`)); 
